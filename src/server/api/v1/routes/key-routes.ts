@@ -29,7 +29,7 @@ export default class KeyRoutes {
     public getKey = (): void => {
         try {
 
-            this.router.get('', (req: Request, res: Response): void => {
+            this.router.get('/', (req: Request, res: Response): void => {
                 res.send('Get key page');
             });
 

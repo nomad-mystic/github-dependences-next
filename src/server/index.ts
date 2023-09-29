@@ -4,10 +4,10 @@ import morgan from 'morgan';
 import next from 'next';
 
 // Routes
-import KeyRoutes from './routes/key-routes';
-import ReposRoutes from './routes/repos-routes';
+import KeyRoutes from './api/v1/routes/key-routes';
+import ReposRoutes from './api/v1/routes/repos-routes';
 
-// Build values for the Next.js
+// Build values for Next.js
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = app.getRequestHandler();
