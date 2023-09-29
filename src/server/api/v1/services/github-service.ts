@@ -1,7 +1,14 @@
+// Community Modules
 import {Octokit} from '@octokit/core';
 import {OctokitResponse} from '@octokit/types';
-import {request} from '@octokit/request';
 
+/**
+ * @classdesc
+ * @class GithubService
+ * @extends
+ * @implements
+ * @author Keith Murphy | nomadmystics@gmail.com
+ */
 export default class GithubService {
     /**
      * @description

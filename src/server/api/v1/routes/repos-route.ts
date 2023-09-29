@@ -6,10 +6,10 @@ import GithubService from '../services/github-service';
 
 /**
  * @classdesc
- * @class ReposRoutes
+ * @class ReposRoute
  * @author Keith Murphy | nomadmystics@gmail.com
  */
-export default class ReposRoutes {
+export default class ReposRoute {
     /**
      * @type Router
      */

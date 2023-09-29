@@ -1,12 +1,12 @@
-import express, {Express, Request, Response, Router} from 'express';
-
+// Community Modules
+import express, {Request, Response, Router} from 'express';
 
 /**
  * @classdesc
  * @class
  * @author Keith Murphy | nomadmystics@gmail.com
  */
-export default class KeyRoutes {
+export default class KeyRoute {
     /**
      * @type Router
      */
