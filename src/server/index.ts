@@ -4,10 +4,10 @@ import morgan from 'morgan';
 import next from 'next';
 
 // Routes
-import KeyRoutes from './routes/key-routes';
-import ReposRoutes from './routes/repos-routes';
+import KeyRoutes from './api/v1/routes/key-routes';
+import ReposRoutes from './api/v1/routes/repos-routes';
 
-// Build values for the Next.js
+// Build values for Next.js
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({dev});
 const handle = app.getRequestHandler();
@@ -33,8 +33,8 @@ app.prepare().then(() => {
     app.use(express.json());
 
     // Append routes
-    app.use('/api/v1.0/key', new KeyRoutes().router);
-    app.use('/api/v1.0/repos', new ReposRoutes().router);
+    app.use('/api/v1/key', new KeyRoutes().router);
+    app.use('/api/v1/repos', new ReposRoutes().router);
 
     app.get('*', (req, res) => {
         return handle(req, res);
