@@ -37,7 +37,7 @@ export default class ReposRoutes {
                 });
 
                 const repos: OctokitResponse<any> = await request('GET /users/{username}/repos', {
-                    username: 'nomad-mystic',
+                    username: process.env.GITHUB_USERNAME as string,
                     headers: {
                         'X-GitHub-Api-Version': '2022-11-28'
                     }

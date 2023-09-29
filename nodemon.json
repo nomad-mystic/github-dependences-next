@@ -1,0 +1,8 @@
+{
+  "ignore": [
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ],
+  "exec": "ts-node --esm --project ./server/tsconfig.server.json ./server/index.ts",
+  "ext": "ts, json"
+}

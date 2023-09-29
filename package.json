@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node --project server/tsconfig.server.json server/index.ts",
+    "dev": "nodemon",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -28,6 +28,7 @@
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "nodemon": "^3.0.1",
     "postcss": "latest",
     "tailwindcss": "latest",
     "ts-node": "^10.9.1",

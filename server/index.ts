@@ -16,6 +16,7 @@ const handle = app.getRequestHandler();
  * @description
  * @public
  * @author Keith Murphy | nomadmystics@gmail.com
+ * @see https://blog.logrocket.com/build-server-rendered-react-app-next-express/#why-express-next-js
  *
  * @return void
  */
