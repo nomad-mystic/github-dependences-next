@@ -33,8 +33,8 @@ app.prepare().then(() => {
     app.use(express.json());
 
     // Append routes
-    app.use('/api/v1.0/key', new KeyRoutes().router);
-    app.use('/api/v1.0/repos', new ReposRoutes().router);
+    app.use('/api/v1/key', new KeyRoutes().router);
+    app.use('/api/v1/repos', new ReposRoutes().router);
 
     app.get('*', (req, res) => {
         return handle(req, res);
