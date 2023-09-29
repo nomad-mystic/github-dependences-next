@@ -1,19 +1,22 @@
 // Community Modules
 import express, {Express, Request, Response} from 'express';
 import morgan from 'morgan';
+
+// Next.js properties
 import next from 'next';
+import { NextServer, RequestHandler } from 'next/dist/server/next';
 
 // Routes
 import KeyRoutes from './api/v1/routes/key-routes';
 import ReposRoutes from './api/v1/routes/repos-routes';
 
 // Build values for Next.js
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({dev});
-const handle = app.getRequestHandler();
+const dev: boolean = process.env.NODE_ENV !== 'production';
+const nextServer: NextServer = next({dev});
+const handler: RequestHandler = nextServer.getRequestHandler();
 
 /**
- * @description
+ * @description Hook into the Next.js server lifecycle and create our Express API
  * @public
  * @author Keith Murphy | nomadmystics@gmail.com
  * @see https://blog.logrocket.com/build-server-rendered-react-app-next-express/#why-express-next-js
@@ -21,26 +24,26 @@ const handle = app.getRequestHandler();
  *
  * @return void
  */
-app.prepare().then(() => {
+nextServer.prepare().then((): void => {
     // Build our app
-    const app: Express = express();
+    const expressServer: Express = express();
 
     // Set ENV
-    app.set('PORT', 3000);
+    expressServer.set('PORT', 3000);
 
-    // Middleware
-    app.use(morgan('dev'));
-    app.use(express.json());
+    // Global Middleware
+    expressServer.use(morgan('dev'));
+    expressServer.use(express.json());
 
     // Append routes
-    app.use('/api/v1/key', new KeyRoutes().router);
-    app.use('/api/v1/repos', new ReposRoutes().router);
+    expressServer.use('/api/v1/key', new KeyRoutes().router);
+    expressServer.use('/api/v1/repos', new ReposRoutes().router);
 
-    app.get('*', (req, res) => {
-        return handle(req, res);
+    expressServer.get('*', (req: Request, res: Response) => {
+        return handler(req, res);
     });
 
-    app.listen(app.get('PORT'), () => {
-        console.log('Express server listening on port ' + app.get('PORT'));
+    expressServer.listen(expressServer.get('PORT'), () => {
+        console.log('Express server listening on port ' + expressServer.get('PORT'));
     });
 });
