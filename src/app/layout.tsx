@@ -1,5 +1,5 @@
 import React from 'react';
-import './globals.css'
+import './styles/globals.css'
 
 // Next
 import type {Metadata} from 'next'
