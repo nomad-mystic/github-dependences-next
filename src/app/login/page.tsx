@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, { useRef } from 'react';
 
 // Styles
 import './login.css';
@@ -26,11 +26,34 @@ const LoginPage = (): React.JSX.Element => {
     const { setTheme } = useTheme();
     setTheme('dark');
 
+    // Add our hooks
+    const usernameInput: React.MutableRefObject<any> = useRef(null);
+    const passwordInput: React.MutableRefObject<any> = useRef(null);
 
+    /**
+     * @description
+     * @public
+     * @author Keith Murphy | nomadmystics@gmail.com
+     *
+     * @param {React.FormEvent} event
+     * @return {void}
+     */
     const onSubmit = (event: React.FormEvent): void => {
         try {
             event.preventDefault();
 
+            const target: HTMLFormElement | undefined = event?.target as HTMLFormElement;
+
+            if (target && typeof target !== 'undefined' && target.tagName === 'FORM') {
+                const username = usernameInput.current.value;
+                const password = passwordInput.current.value;
+
+                console.log(username);
+                console.log(password);
+
+                // @todo Call our endpoint
+
+            }
 
         } catch (err: any) {
             console.log('LoginPage.onSubmit()');
@@ -42,14 +65,14 @@ const LoginPage = (): React.JSX.Element => {
         <section className="Login flex flex-col items-center justify-center h-screen">
             <Card className="w-1/3 flex flex-col items-center justify-between bg-cardBackground">
                 <section className="text-teal p-8 mt-0 mb-0 w-full">
-                    <form onSubmit={ onSubmit }>
+                    <form onSubmit={ onSubmit } id="Login-form">
                         <div className="flex flex-col mb-6">
                             <Label htmlFor="username" className="mb-2 font-body">Username</Label>
-                            <Input type="text" id="username" />
+                            <Input type="text" id="username" ref={ usernameInput }/>
                         </div>
                         <div className="flex flex-col mb-6">
                             <Label htmlFor="password" className="mb-2 font-body">Password</Label>
-                            <Input type="password" id="password" />
+                            <Input type="password" id="password" ref={ passwordInput }/>
                         </div>
                         <div className="flex justify-center w-1/2 m-auto">
                             <Button className="font-body w-full">Sign-in</Button>
