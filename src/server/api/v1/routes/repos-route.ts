@@ -3,13 +3,14 @@ import express, { Request, Response, Router } from 'express';
 
 // Package Modules
 import GithubService from '../services/github-service';
+import RouteInterface from '../interfaces/route-interface';
 
 /**
  * @classdesc
  * @class ReposRoute
  * @author Keith Murphy | nomadmystics@gmail.com
  */
-export default class ReposRoute {
+export default class ReposRoute implements RouteInterface {
     /**
      * @type Router
      */
@@ -51,7 +52,7 @@ export default class ReposRoute {
         } catch (err: any) {
             console.error(err);
         }
-    }
+    };
 
     /**
      * @description
@@ -70,5 +71,5 @@ export default class ReposRoute {
         } catch (err: any) {
             console.error(err);
         }
-    }
+    };
 }
