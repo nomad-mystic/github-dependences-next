@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon",
+    "dev": "npm run development",
+    "development": "nodemon",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
