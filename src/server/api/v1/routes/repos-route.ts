@@ -1,15 +1,16 @@
 // Community Modules
 import express, { Request, Response, Router } from 'express';
-import { Octokit } from '@octokit/core';
-import { request } from '@octokit/request';
-import { OctokitResponse } from '@octokit/types';
+
+// Package Modules
+import GithubService from '../services/github-service';
+import RouteInterface from '../interfaces/route-interface';
 
 /**
  * @classdesc
- * @class ReposRoutes
+ * @class ReposRoute
  * @author Keith Murphy | nomadmystics@gmail.com
  */
-export default class ReposRoutes {
+export default class ReposRoute implements RouteInterface {
     /**
      * @type Router
      */
@@ -17,7 +18,7 @@ export default class ReposRoutes {
 
     constructor() {
         this.router = express.Router();
-        this.getAll();
+        this.getAll().catch(err => console.log(err));
         this.getOne();
     }
 
@@ -28,22 +29,13 @@ export default class ReposRoutes {
      *
      * @return {void}
      */
-    public getAll = (): void => {
+    public getAll = async (): Promise<void> => {
         try {
 
             this.router.get('/all', async (req: Request, res: Response): Promise<void> => {
-                new Octokit({
-                    auth: process.env.GITHUB_API_KEY,
-                });
+                const repos = await GithubService.buildApiResponse('GET /user/repos');
 
-                const repos: OctokitResponse<any> = await request('GET /users/{username}/repos', {
-                    username: process.env.GITHUB_USERNAME as string,
-                    headers: {
-                        'X-GitHub-Api-Version': '2022-11-28'
-                    }
-                });
-
-                if (repos.status === 200) {
+                if (repos?.status && repos?.status === 200) {
 
                     res.status(200);
 
@@ -51,7 +43,7 @@ export default class ReposRoutes {
 
                 } else {
 
-                    res.status(repos?.status);
+                    res.status(repos?.status as number);
 
                     res.send(repos?.status);
                 }
@@ -60,7 +52,7 @@ export default class ReposRoutes {
         } catch (err: any) {
             console.error(err);
         }
-    }
+    };
 
     /**
      * @description
@@ -79,5 +71,5 @@ export default class ReposRoutes {
         } catch (err: any) {
             console.error(err);
         }
-    }
+    };
 }

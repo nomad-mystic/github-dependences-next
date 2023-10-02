@@ -7,8 +7,8 @@ import next from 'next';
 import { NextServer, RequestHandler } from 'next/dist/server/next';
 
 // Routes
-import KeyRoutes from './api/v1/routes/key-routes';
-import ReposRoutes from './api/v1/routes/repos-routes';
+import KeyRoute from './api/v1/routes/key-route';
+import ReposRoute from './api/v1/routes/repos-route';
 
 // Build values for Next.js
 const dev: boolean = process.env.NODE_ENV !== 'production';
@@ -36,8 +36,8 @@ nextServer.prepare().then((): void => {
     expressServer.use(express.json());
 
     // Append routes
-    expressServer.use('/api/v1/key', new KeyRoutes().router);
-    expressServer.use('/api/v1/repos', new ReposRoutes().router);
+    expressServer.use('/api/v1/key', new KeyRoute().router);
+    expressServer.use('/api/v1/repos', new ReposRoute().router);
 
     expressServer.get('*', (req: Request, res: Response) => {
         return handler(req, res);
