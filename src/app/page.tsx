@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 
 import Image from 'next/image'
 
-
 export default function Home() {
     useEffect(() => {
         fetch('/api/v1.0/repos/all').then((res) => res.json()).then((data) => console.log(data));
