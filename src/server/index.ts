@@ -10,6 +10,16 @@ import { NextServer, RequestHandler } from 'next/dist/server/next';
 import KeyRoute from './api/v1/routes/key-route';
 import ReposRoute from './api/v1/routes/repos-route';
 
+// Services
+import MongoDBService from './api/v1/services/mongo-db-service';
+
+// Development specific
+if (process.env.NODE_ENV === 'development') {
+
+    MongoDBService.closeConnection().catch(err => console.error(err));
+
+}
+
 // Build values for Next.js
 const dev: boolean = process.env.NODE_ENV !== 'production';
 const nextServer: NextServer = next({dev});
@@ -34,6 +44,9 @@ nextServer.prepare().then((): void => {
     // Global Middleware
     expressServer.use(morgan('dev'));
     expressServer.use(express.json());
+
+    // Creat the connection to our DB
+    new MongoDBService();
 
     // Append routes
     expressServer.use('/api/v1/key', new KeyRoute().router);
