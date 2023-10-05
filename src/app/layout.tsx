@@ -21,9 +21,17 @@ export const metadata: Metadata = {
     applicationName: 'GitHub Dependencies',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+/**
+ * @description
+ * @public
+ * @author Keith Murphy | nomadmystics@gmail.com
+ *
+ * @param {Object.children} children
+ * @return {React.JSX.Element}
+ */
+export default function RootLayout({ children }: { children: React.ReactNode }): React.JSX.Element {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={inter.className}>
                 <ThemeProvider
                     attribute="class"
