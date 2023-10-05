@@ -14,6 +14,7 @@ import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 /**
  *
@@ -83,7 +84,7 @@ const LoginPage = (): React.JSX.Element => {
 
                     <div className="flex justify-center w-1/2 m-auto mt-4">
                         <p className="text-xs">Dont have have an account?</p>
-                        <a className="Login-createAccount text-primary text-xs ml-1">Create One.</a>
+                        <Link className="Login-createAccount text-primary text-xs ml-1" href="/create-account">Create One.</Link>
                     </div>
                 </section>
             </Card>
