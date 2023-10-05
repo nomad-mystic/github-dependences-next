@@ -45,7 +45,7 @@ nextServer.prepare().then((): void => {
     expressServer.use(morgan('dev'));
     expressServer.use(express.json());
 
-    // Creat the connection to our DB
+    // Create the connection to our DB
     new MongoDBService();
 
     // Append routes

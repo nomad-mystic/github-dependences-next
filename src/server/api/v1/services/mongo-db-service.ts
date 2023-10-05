@@ -19,8 +19,8 @@ class MongoDBService {
     private createConnection = async (): Promise<void> => {
         try {
 
-            mongoose.createConnection('mongodb://127.0.0.1:27017');
-            console.log('Mongo Connected');
+            // await mongoose.createConnection('mongodb://127.0.0.1:27017').asPromise();
+            // console.log('Mongo Connected');
 
 
         } catch (err: any) {
@@ -28,7 +28,6 @@ class MongoDBService {
             console.log(err);
         }
     };
-
 
     /**
      * @description
@@ -40,9 +39,9 @@ class MongoDBService {
      */
     public static closeConnection = async (): Promise<void> => {
         try {
-            
-            await mongoose.disconnect();
-            console.log('Mongo Disconnected');
+
+            // await mongoose.disconnect();
+            // console.log('Mongo Disconnected');
 
         } catch (err: any) {
             console.log('MongoDBService.createSchema()');
