@@ -10,14 +10,6 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@octokit/core": "^5.0.1",
-        "@octokit/plugin-rest-endpoint-methods": "^10.0.0",
-        "@octokit/request": "^8.1.2",
-        "@octokit/types": "^12.0.0",
-        "@radix-ui/react-label": "^2.0.2",
-        "@radix-ui/react-slot": "^1.0.2",
-        "@types/express": "^4.17.18",
-        "@types/morgan": "^1.9.6",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.0.0",
         "express": "^4.18.2",
@@ -29,17 +21,26 @@
         "react-dom": "latest",
         "tailwind-merge": "^1.14.0",
         "tailwindcss-animate": "^1.0.7",
-        "@types/node": "^20.7.1",
-        "@types/react": "latest",
-        "@types/react-dom": "latest",
         "autoprefixer": "latest",
         "eslint": "latest",
         "eslint-config-next": "latest",
-        "nodemon": "^3.0.1",
         "postcss": "latest",
         "tailwindcss": "latest",
         "ts-node": "^10.9.1",
         "typescript": "latest"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "@octokit/core": "^5.0.1",
+        "@octokit/plugin-rest-endpoint-methods": "^10.0.0",
+        "@octokit/request": "^8.1.2",
+        "@octokit/types": "^12.0.0",
+        "@radix-ui/react-label": "^2.0.2",
+        "@radix-ui/react-slot": "^1.0.2",
+        "@types/express": "^4.17.18",
+        "@types/morgan": "^1.9.6",
+        "nodemon": "^3.0.1",
+        "@types/node": "^20.7.1",
+        "@types/react": "latest",
+        "@types/react-dom": "latest"
+    }
 }
