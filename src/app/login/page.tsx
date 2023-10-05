@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import React, { useRef } from 'react';
 
@@ -70,17 +70,20 @@ const LoginPage = (): React.JSX.Element => {
                             <Label htmlFor="username" className="mb-2 font-body">Username</Label>
                             <Input type="text" id="username" ref={ usernameInput }/>
                         </div>
+
                         <div className="flex flex-col mb-6">
                             <Label htmlFor="password" className="mb-2 font-body">Password</Label>
                             <Input type="password" id="password" ref={ passwordInput }/>
                         </div>
+
                         <div className="flex justify-center w-1/2 m-auto">
                             <Button className="font-body w-full">Sign-in</Button>
                         </div>
                     </form>
 
                     <div className="flex justify-center w-1/2 m-auto mt-4">
-                        <p className="text-xs">Dont have have an account?</p><a className="Login-createAccount text-primary text-xs ml-1">Create One.</a>
+                        <p className="text-xs">Dont have have an account?</p>
+                        <a className="Login-createAccount text-primary text-xs ml-1">Create One.</a>
                     </div>
                 </section>
             </Card>
