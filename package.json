@@ -1,5 +1,5 @@
 {
-    "name": "github-dependences-next",
+    "name": "@nomadmystic/github-dependences-next",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -10,6 +10,27 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "autoprefixer": "latest",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.0.0",
+        "eslint": "latest",
+        "eslint-config-next": "latest",
+        "express": "^4.18.2",
+        "lucide-react": "^0.279.0",
+        "mongoose": "^7.5.4",
+        "morgan": "^1.10.0",
+        "next": "latest",
+        "next-themes": "^0.2.1",
+        "postcss": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "tailwind-merge": "^1.14.0",
+        "tailwindcss": "latest",
+        "tailwindcss-animate": "^1.0.7",
+        "ts-node": "^10.9.1",
+        "typescript": "latest"
+    },
+    "devDependencies": {
         "@octokit/core": "^5.0.1",
         "@octokit/plugin-rest-endpoint-methods": "^10.0.0",
         "@octokit/request": "^8.1.2",
@@ -17,29 +38,13 @@
         "@radix-ui/react-label": "^2.0.2",
         "@radix-ui/react-slot": "^1.0.2",
         "@types/express": "^4.17.18",
+        "@types/mongoose": "^5.11.97",
         "@types/morgan": "^1.9.6",
-        "class-variance-authority": "^0.7.0",
-        "clsx": "^2.0.0",
-        "express": "^4.18.2",
-        "lucide-react": "^0.279.0",
-        "morgan": "^1.10.0",
-        "next": "latest",
-        "next-themes": "^0.2.1",
-        "react": "latest",
-        "react-dom": "latest",
-        "tailwind-merge": "^1.14.0",
-        "tailwindcss-animate": "^1.0.7",
         "@types/node": "^20.7.1",
+        "@types/nodemon": "^1.19.3",
         "@types/react": "latest",
         "@types/react-dom": "latest",
-        "autoprefixer": "latest",
-        "eslint": "latest",
-        "eslint-config-next": "latest",
-        "nodemon": "^3.0.1",
-        "postcss": "latest",
-        "tailwindcss": "latest",
-        "ts-node": "^10.9.1",
-        "typescript": "latest"
-    },
-    "devDependencies": {}
+        "kill-port": "^2.0.1",
+        "nodemon": "^3.0.1"
+    }
 }
