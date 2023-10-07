@@ -3,11 +3,14 @@ import express, { Request, Response, Router } from 'express';
 
 // Package Modules
 import GithubService from '../services/github-service';
+
+// Package Interfaces
 import RouteInterface from '../interfaces/route-interface';
 
 /**
- * @classdesc
+ * @classdesc Setup routes for GitHub repository endpoints
  * @class ReposRoute
+ * @implements RouteInterface
  * @author Keith Murphy | nomadmystics@gmail.com
  */
 export default class ReposRoute implements RouteInterface {
@@ -18,9 +21,11 @@ export default class ReposRoute implements RouteInterface {
 
     constructor() {
         this.router = express.Router();
+
+        // Setup routes
         this.getAll().catch(err => console.log(err));
         this.getOne();
-    }
+    };
 
     /**
      * @description

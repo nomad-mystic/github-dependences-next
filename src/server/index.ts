@@ -9,6 +9,7 @@ import { NextServer, RequestHandler } from 'next/dist/server/next';
 // Routes
 import KeyRoute from './api/v1/routes/key-route';
 import ReposRoute from './api/v1/routes/repos-route';
+import UserRoute from './api/v1/routes/user-route';
 
 // Services
 import MongoDBService from './api/v1/services/mongo-db-service';
@@ -45,12 +46,13 @@ nextServer.prepare().then((): void => {
     expressServer.use(morgan('dev'));
     expressServer.use(express.json());
 
-    // Creat the connection to our DB
+    // Create the connection to our DB
     new MongoDBService();
 
     // Append routes
     expressServer.use('/api/v1/key', new KeyRoute().router);
     expressServer.use('/api/v1/repos', new ReposRoute().router);
+    expressServer.use('/api/v1/user', new UserRoute().router);
 
     expressServer.get('*', (req: Request, res: Response) => {
         return handler(req, res);
