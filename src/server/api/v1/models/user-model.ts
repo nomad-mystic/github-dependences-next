@@ -22,7 +22,7 @@ interface UserMethodsInterface {
     isValidPassword(): Promise<boolean>
 }
 
-type UserModal = Model<UserInterface, {}, UserMethodsInterface>
+type UserModal = Model<UserInterface, any, UserMethodsInterface>
 
 const UserSchema = new Schema<UserInterface, UserModal, UserMethodsInterface>({
     id: Schema.ObjectId,
@@ -68,6 +68,6 @@ UserSchema.method('isValidPassword', async function(password: string): Promise<b
     return compare;
 });
 
-const UserModel = model<UserInterface, UserMethodsInterface>('user', UserSchema);
+const UserModel = model<UserInterface, any, UserMethodsInterface>('user', UserSchema);
 
 export default UserModel;
