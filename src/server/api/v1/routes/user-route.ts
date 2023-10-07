@@ -1,5 +1,6 @@
-
-import { Request, Response, Router } from 'express';
+// Community Modules
+import { NextFunction, Request, Response, Router } from 'express';
+import passport from 'passport';
 
 // Package Interfaces
 import RouteInterface from '../interfaces/route-interface';
@@ -35,7 +36,21 @@ export default class UserRoute implements RouteInterface {
      */
     public async create(): Promise<any> {
         this.router.post('/', (req: Request, res: Response): void => {
-            res.send('POST User');
+
+            // Authenticate with Passport
+            passport.authenticate('create-user',
+            {
+                session: false,
+            },
+            async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+
+                // Send our response
+                res.status(200).json({
+                    message: 'Signup successful',
+                    user: req.user
+                });
+
+            });
         });
     };
 

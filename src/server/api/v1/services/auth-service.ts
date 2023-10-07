@@ -1,7 +1,7 @@
 import { Request } from 'express';
 
 import passport from 'passport';
-import { IStrategyOptions, IStrategyOptionsWithRequest, Strategy } from 'passport-local';
+import { IStrategyOptions, IStrategyOptionsWithRequest, Strategy, VerifyFunctionWithRequest } from 'passport-local';
 
 // Models
 import UserModel from '../models/user-model';
@@ -32,10 +32,10 @@ class AuthService {
             console.log('AuthService.getAuthService');
             console.error(err);
         }
-    }
+    };
 
     /**
-     * @description
+     * @description Create middleware for create-user Passport event
      * @public
      * @author Keith Murphy | nomadmystics@gmail.com
      * @see {IStrategyOptionsWithRequest}
@@ -45,7 +45,7 @@ class AuthService {
     public createAccount = async (): Promise<void> => {
         try {
             passport.use(
-                'create-user-auth',
+                'create-user',
                 new Strategy(
                     {
                         usernameField: 'email',
@@ -70,7 +70,7 @@ class AuthService {
             console.log('AuthService.createAccount');
             console.error(err);
         }
-    }
+    };
 
     public checkUserAuth = async (): Promise<void> => {
         try {
