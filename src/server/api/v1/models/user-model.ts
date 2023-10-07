@@ -1,15 +1,16 @@
-import mongoose, { Model, Schema, Types, model } from 'mongoose';
+import mongoose, { Model, Schema, Types, InferSchemaType } from 'mongoose';
 import bcrypt from 'bcrypt';
 
-
 // @link https://mongoosejs.com/docs/typescript.html
+// @link https://mongoosejs.com/docs/typescript/statics-and-methods.html
+// @link https://github.com/Automattic/mongoose/issues/10358#issuecomment-1048002477
 
 interface GitHubMetadata {
     username: string;
     apiKey: string;
 }
 
-interface UserInterface {
+interface UserInterface extends mongoose.Document {
     id: Types.ObjectId
     email: string;
     password: string;
@@ -18,13 +19,13 @@ interface UserInterface {
     githubMeta: GitHubMetadata;
 }
 
-interface UserMethodsInterface {
-    isValidPassword(): Promise<boolean>
+export interface UserMethods extends UserInterface {
+    comparePassword: (password1: string, password2: string) => Promise<boolean>
 }
 
-type UserModal = Model<UserInterface, any, UserMethodsInterface>
+interface UserModel extends Model<UserInterface, {}> { }
 
-const UserSchema = new Schema<UserInterface, UserModal, UserMethodsInterface>({
+const UserSchema = new Schema<UserMethods, UserModel>({
     id: Schema.ObjectId,
     email: {
         type: String,
@@ -43,11 +44,7 @@ const UserSchema = new Schema<UserInterface, UserModal, UserMethodsInterface>({
     },
 });
 
-// Setup hooks here
-
-/**
- *
- */
+// Hooks
 UserSchema.pre(
     'save',
     async function(next: mongoose.CallbackWithoutResultAndOptionalError): Promise<void>  {
@@ -60,14 +57,15 @@ UserSchema.pre(
     }
 );
 
-// https://mongoosejs.com/docs/typescript/statics-and-methods.html
-UserSchema.method('isValidPassword', async function(password: string): Promise<boolean> {
+
+// Methods
+UserSchema.methods.isValidPassword = async function (password: string) {
     const user: mongoose.AnyObject = this;
     const compare: boolean = await bcrypt.compare(password, user.password);
 
     return compare;
-});
+};
 
-const UserModel = model<UserInterface, any, UserMethodsInterface>('user', UserSchema);
+export const UserModel = mongoose.model<UserMethods>('User', UserSchema);
 
 export default UserModel;
