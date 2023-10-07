@@ -1,5 +1,4 @@
 import type {Config} from 'tailwindcss'
-import colors from 'tailwindcss/colors';
 
 const config: Config = {
     content: [
@@ -25,15 +24,10 @@ const config: Config = {
                 'gradient-conic':
                     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
             },
-            colors: {
-                teal: 'rgba(125, 211, 252, 1)',
-                cardBackground: 'rgba(30, 41, 59, 1)',
-            },
+            colors: {},
         },
     },
-    plugins: [
-
-    ],
+    plugins: [],
 };
 
 export default config
