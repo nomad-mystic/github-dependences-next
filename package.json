@@ -1,7 +1,6 @@
 {
-    "name": "@nomadmystic/github-dependences-next",
-    "version": "0.1.0",
-    "private": true,
+    "name": "@nomadmystic/github-dependencies-next",
+    "version": "0.1.1",
     "scripts": {
         "dev": "npm run development",
         "development": "nodemon",
