@@ -1,6 +1,6 @@
 {
     "name": "@nomadmystic/github-dependencies-next",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "scripts": {
         "dev": "npm run development",
         "development": "nodemon",
@@ -8,6 +8,19 @@
         "start": "next start",
         "lint": "next lint"
     },
+    "author": "nomadmystics@gmail.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nomad-mystic/github-dependencies-next/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nomad-mystic/github-dependencies-next.git"
+    },
+    "keywords": [
+        "Next.js",
+        "GitHub"
+    ],
     "dependencies": {
         "autoprefixer": "latest",
         "bcrypt": "^5.1.1",
