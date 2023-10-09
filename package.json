@@ -1,5 +1,5 @@
 {
-    "name": "@nomadmystic/github-dependences-next",
+    "name": "@nomadmystic/github-dependencies-next",
     "version": "0.1.0",
     "private": true,
     "scripts": {
