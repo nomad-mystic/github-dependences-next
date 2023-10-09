@@ -75,8 +75,8 @@ export default class UserRoute implements RouteInterface {
      * @return Promise<any>
      */
     public get = async (): Promise<any> => {
-        this.router.get('/:id', (req: Request, res: Response): void => {
-            res.send(req.params);
+        this.router.get('/', (req: Request, res: Response): void => {
+            res.send(req.query);
         });
     };
 

@@ -34,7 +34,6 @@ Content to Docker MongoDB container with Compass.
     * ```$ docker exec -it development-mongo-dev-1 bash```
     * ```$ docker inspect {CONTAINER_NAME}```
 
-
 ## Helpful Links:
 * https://docs.docker.com/
 * https://docs.docker.com/compose/reference/
