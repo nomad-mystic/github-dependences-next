@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-    with-docker-multi-env-development:
+    github-dependencies-app-dev:
         build:
             context: ../../
             dockerfile: docker/development/Dockerfile
-        image: with-docker-multi-env-development
+        image: github-dependencies-app-dev
         ports:
             - '3000:3000'
         volumes:
@@ -13,16 +13,18 @@ services:
             - ../../node_modules:/node_modules
             - ../../.next:/app/.next
         depends_on:
-            - mongo-dev
+            - github-dependencies-db-dev
 
-    mongo-dev:
+    github-dependencies-db-dev:
         restart: always
         image: mongo:7.0.2
         volumes:
             - ./data:/data/db
         networks:
             - express-mongo
+        ports:
+            - '27017:27017'
         expose:
-            - 27017
+            - '27017:27017'
 networks:
     express-mongo:

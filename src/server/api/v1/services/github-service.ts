@@ -1,6 +1,6 @@
 // Community Modules
-import {Octokit} from '@octokit/core';
-import {OctokitResponse} from '@octokit/types';
+import { Octokit } from '@octokit/core';
+import { OctokitResponse } from '@octokit/types';
 
 /**
  * @classdesc
