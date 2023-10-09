@@ -1,7 +1,5 @@
-
 # GitHub Dependencies Next
-
-#### Next.js app to show, update, commit, and push dependency changes to GitHub.
+Next.js app to show, update, commit, and push dependency changes to GitHub.
 
 ## Development:
 
@@ -9,7 +7,7 @@
 
 * Build Images:
   * ```shell
-    $ make build-development  
+    $ make build-development
     ```
 * Start Containers:
   * ```shell
