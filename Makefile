@@ -8,4 +8,8 @@ start-development: ## Start the development docker container.
 
 .PHONY: stop-development
 stop-development: ## Stop the development docker container.
+	docker compose -f docker/development/docker-compose.yaml stop
+
+.PHONY: stop-development
+remove-development: ## Stop the development docker container.
 	docker compose -f docker/development/docker-compose.yaml down
