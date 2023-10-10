@@ -73,6 +73,13 @@ const CreateAccountPage = () => {
         }
     };
 
+    /**
+     * @description
+     * @public
+     * @author Keith Murphy | nomadmystics@gmail.com
+     *
+     * @return {boolean}
+     */
     const validatePassword = (password: string, confirmPassword: string): boolean => {
         let validPassword = true;
 
@@ -90,7 +97,14 @@ const CreateAccountPage = () => {
         return validPassword;
     };
 
-    const onPasswordChangeHandler = () => {
+    /**
+     * @description
+     * @public
+     * @author Keith Murphy | nomadmystics@gmail.com
+     *
+     * @return {void}
+     */
+    const onPasswordChangeHandler = (): void => {
         const password = passwordInput.current.value.trim();
         const confirmPassword = confirmPasswordInput.current.value.trim();
 
