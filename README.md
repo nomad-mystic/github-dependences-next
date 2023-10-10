@@ -5,22 +5,32 @@ Next.js app to show, update, commit, and push dependency changes to GitHub.
 
 > Requires: Docker, Node.js (>=18)
 
+```shell
+$ git clone git@github.com:nomad-mystic/github-dependencies-next.git
+$ cd ./github-dependencies-next
+$ nvm use
+$ npm install
+```
+
 * Build Images:
-  * ```shell
-    $ make build-development
-    ```
+```shell
+$ make build-development
+```
+
 * Start Containers:
-  * ```shell
-    $ make start-development  
-    ```
+```shell
+$ make start-development
+```
+
 * Stop Containers:
-  * ```shell
-    $ make stop-development  
-    ```
+```shell
+$ make stop-development  
+```
+
 * Remove Containers:
-  * ```shell
-    $ make remove-development  
-    ```
+```shell
+$ make remove-development  
+```
 
 ### MongoDB:
 Connect to Docker MongoDB container with Compass.
@@ -34,7 +44,7 @@ Helpful commands
 * ```$ docker exec -it development-mongo-dev-1 bash```
 * ```$ docker inspect {CONTAINER_NAME}```
 
-## Helpful Links:
+### Helpful Links:
 * https://docs.docker.com/
 * https://docs.docker.com/compose/reference/
 * https://nextjs.org/docs
