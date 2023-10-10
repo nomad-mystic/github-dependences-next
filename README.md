@@ -8,7 +8,7 @@ Next.js app to show, update, commit, and push dependency changes to GitHub.
 ```shell
 $ git clone git@github.com:nomad-mystic/github-dependencies-next.git
 $ cd ./github-dependencies-next
-$ nvm use 
+$ nvm use
 $ npm install
 ```
 
@@ -19,7 +19,7 @@ $ make build-development
 
 * Start Containers:
 ```shell
-$ make start-development  
+$ make start-development
 ```
 
 * Stop Containers:
