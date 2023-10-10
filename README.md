@@ -30,9 +30,9 @@ Connect to Docker MongoDB container with Compass.
 
 ### Docker:
 Helpful commands
-    * ```$ docker ps``` 
-    * ```$ docker exec -it development-mongo-dev-1 bash```
-    * ```$ docker inspect {CONTAINER_NAME}```
+* ```$ docker ps``` 
+* ```$ docker exec -it development-mongo-dev-1 bash```
+* ```$ docker inspect {CONTAINER_NAME}```
 
 ## Helpful Links:
 * https://docs.docker.com/
