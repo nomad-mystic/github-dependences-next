@@ -23,13 +23,13 @@ Next.js app to show, update, commit, and push dependency changes to GitHub.
     ```
 
 ### MongoDB:
-Content to Docker MongoDB container with Compass.
+Connect to Docker MongoDB container with Compass.
 * Download MongoDB Compass
 * Open Compass app
 * Connect to `mongodb://localhost:27017/`
 
 ### Docker:
-* Helpful commands
+Helpful commands
     * ```$ docker ps``` 
     * ```$ docker exec -it development-mongo-dev-1 bash```
     * ```$ docker inspect {CONTAINER_NAME}```
