@@ -13,9 +13,10 @@ interface GitHubMetadata {
 interface UserInterface extends mongoose.Document {
     id: Types.ObjectId
     email: string;
+    username: string;
     password: string;
     firstName: string;
-    LastName: string;
+    lastName: string;
     githubMeta: GitHubMetadata;
 }
 
@@ -32,12 +33,16 @@ const UserSchema = new Schema<UserMethods, UserModel>({
         required: true,
         unique: true,
     },
+    username: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,
     },
     firstName: String,
-    LastName: String,
+    lastName: String,
     githubMeta: {
         username: String,
         apiKey: String,

@@ -2,12 +2,11 @@
 
 import React, { useEffect } from 'react';
 
-import Image from 'next/image'
 import Link from 'next/link';
 
-export default function Home() {
+export default function Home(): React.JSX.Element {
     useEffect(() => {
-        fetch('/api/v1.0/repos/all').then((res) => res.json()).then((data) => console.log(data));
+        fetch('/api/v1/repos/all').then((res) => res.json()).then((data) => console.log(data));
     }, []);
 
     return (
@@ -26,4 +25,4 @@ export default function Home() {
             </section>
         </main>
     )
-}
+};
