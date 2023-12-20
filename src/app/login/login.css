@@ -1,5 +1,5 @@
 .Login {
-    & .Login-createAccount {
+    &-createAccount {
         cursor: pointer;
     }
 }

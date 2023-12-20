@@ -14,7 +14,8 @@ import { ScrollArea } from '@/app/components/ui/scroll-area';
 import { getJson } from '@/app/helpers/rest-helpers';
 
 // Types
-import { GithubRepoType, GitHubDataType } from '@/app/types/github-repo-types';
+import { GithubRepoType, GitHubReposDataType } from '@/app/types/github-repo-types';
+import { GithubUserType, GitHubUserDataType } from '@/app/types/github-user-types';
 
 /**
  * @description
@@ -24,7 +25,8 @@ import { GithubRepoType, GitHubDataType } from '@/app/types/github-repo-types';
  * @return {React.JSX.Element}
  */
 const DashboardPage = (): React.JSX.Element => {
-    const [repos, setRepos] = useState<Array<GitHubDataType>>([]);
+    const [repos, setRepos] = useState<Array<GitHubReposDataType>>([]);
+    const [user, setUser] = useState<Array<GitHubUserDataType>>([]);
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
@@ -53,22 +55,55 @@ const DashboardPage = (): React.JSX.Element => {
         });
     }, []);
 
+    useEffect(() => {
+
+        const callForUser = async () => {
+            try {
+                const response = await getJson('/api/v1/github-user') as GithubUserType | undefined;
+
+                if (response && typeof response !== 'undefined') {
+
+                    console.log(response);
+
+                    // setRepos(response.data);
+                }
+            } catch (err) {
+
+                console.log(err);
+                setIsError(true);
+
+            }
+        };
+
+        callForUser().catch(err => {
+            console.log(err);
+            setIsError(true);
+        });
+    }, []);
 
     return (
-        <main>
+        <main className="flex DashboardPage">
             <Sidebar/>
 
-            <section className="DashboardPage">
-                {
-                    !isError && repos.map((repo: GitHubDataType) => {
-                        return (
-                            <article key={ repo.id }>
-                                <h1>{ repo.name }</h1>
-                                <h2>{ repo.updated_at }</h2>
-                            </article>
-                        );
-                    })
-                }
+            <section className="DashboardPage-content grid">
+                <section className="DashboardPage-user">
+
+                </section>
+
+                <section className="DashboardPage-repos">
+                    {
+                        !isError && repos.map((repo: GitHubReposDataType) => {
+                            return (
+                                <article key={ repo.id }>
+                                    <h1>{ repo.name }</h1>
+                                    <h2>{ repo.updated_at }</h2>
+                                </article>
+                            );
+                        })
+                    }
+                </section>
+
+
             </section>
         </main>
     );

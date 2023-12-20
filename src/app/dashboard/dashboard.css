@@ -1,0 +1,24 @@
+.DashboardPage {
+    &-content {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr 2fr;
+        width: 100%;
+    }
+
+    &-user {
+        border: 1px solid white;
+        grid-column: 1 / 13;
+        grid-row: 1;
+    }
+
+    &-repos {
+        grid-row: 2 / 3;
+        grid-column: 1 / 13;
+        border: 1px solid white;
+
+        article {
+            display: flex;
+        }
+    }
+}

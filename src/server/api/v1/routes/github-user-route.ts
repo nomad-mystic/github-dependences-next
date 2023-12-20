@@ -8,6 +8,7 @@ import GithubService from '../services/github-service';
 import RouteInterface from '../interfaces/route-interface';
 
 import { allReposMock } from '../mocks/get-all-repos';
+import { githubUser } from '../mocks/github-user';
 
 /**
  * @classdesc Setup routes for GitHub repository endpoints
@@ -39,9 +40,9 @@ export default class GithubUserRoute implements RouteInterface {
         try {
 
             this.router.get('/', async (req: Request, res: Response): Promise<void> => {
-                const user = await GithubService.buildApiResponse('GET /user');
+                // const user = await GithubService.buildApiResponse('GET /user');
 
-                // const repos = allReposMock;
+                const user = githubUser;
 
                 if (user?.status && user?.status === 200) {
 

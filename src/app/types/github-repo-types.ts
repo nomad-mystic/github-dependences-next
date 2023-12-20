@@ -1,4 +1,4 @@
-export type GitHubDataType = {
+export type GitHubReposDataType = {
     name: string;
     id: number;
     updated_at: string;
@@ -6,5 +6,6 @@ export type GitHubDataType = {
 
 
 export type GithubRepoType = {
-    data: Array<GitHubDataType>
+    status: number,
+    data: Array<GitHubReposDataType>
 };
