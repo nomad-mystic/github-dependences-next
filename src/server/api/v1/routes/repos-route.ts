@@ -7,6 +7,8 @@ import GithubService from '../services/github-service';
 // Package Interfaces
 import RouteInterface from '../interfaces/route-interface';
 
+import { allReposMock } from '../mocks/get-all-repos';
+
 /**
  * @classdesc Setup routes for GitHub repository endpoints
  * @class ReposRoute
@@ -38,7 +40,9 @@ export default class ReposRoute implements RouteInterface {
         try {
 
             this.router.get('/all', async (req: Request, res: Response): Promise<void> => {
-                const repos = await GithubService.buildApiResponse('GET /user/repos');
+                // const repos = await GithubService.buildApiResponse('GET /user/repos');
+
+                const repos = allReposMock;
 
                 if (repos?.status && repos?.status === 200) {
 

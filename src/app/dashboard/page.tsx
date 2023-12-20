@@ -1,12 +1,27 @@
 'use client';
 
+// Community
 import React, { useEffect, useState } from 'react';
+
+// Styles
+import './dashboard.css';
 
 // Components
 import Sidebar from '@/app/components/sidebar/sidebar';
+import { ScrollArea } from '@/app/components/ui/scroll-area';
+
+// Types
+import GitHubRepoType from '@/app/types/github-repo-type';
 
 
-const DashboardPage = () => {
+/**
+ * @description
+ * @public
+ * @author Keith Murphy | nomadmystics@gmail.com
+ *
+ * @return {React.JSX.Element}
+ */
+const DashboardPage = (): React.JSX.Element => {
     const [repos, setRepos] = useState([]);
     const [isError, setIsError] = useState(false);
 
@@ -17,7 +32,9 @@ const DashboardPage = () => {
                 const reposRaw = await fetch('/api/v1/repos/all');
                 const reposJson = await reposRaw.json();
 
-                setRepos(reposJson);
+                console.log(reposJson);
+
+                setRepos(reposJson.data);
             } catch (err) {
 
                 console.log(err);
@@ -35,10 +52,19 @@ const DashboardPage = () => {
 
     return (
         <main>
-            <Sidebar />
+            <Sidebar/>
 
-            <section>
-
+            <section className="DashboardPage">
+                {
+                    !isError && repos.map((repo: GitHubRepoType) => {
+                        return (
+                            <article key={ repo.id }>
+                                <h1>{ repo.name }</h1>
+                                <h2>{ repo.updated_at }</h2>
+                            </article>
+                        );
+                    })
+                }
             </section>
         </main>
     );
