@@ -1,24 +1,62 @@
 .DashboardPage {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    &-sidebar {
+        grid-column: 2 / 3;
+    }
+
     &-content {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: 1fr 2fr;
+        grid-template-rows: auto auto;
         width: 100%;
+        grid-column: 4 / 12;
     }
 
     &-user {
-        border: 1px solid white;
         grid-column: 1 / 13;
         grid-row: 1;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+        gap: 1.6rem;
     }
 
-    &-repos {
-        grid-row: 2 / 3;
-        grid-column: 1 / 13;
-        border: 1px solid white;
+    &-userData,
+    &-userRepos,
+    &-userStatics {
+        width: 100%;
+        text-align: center;
+    }
 
-        article {
-            display: flex;
-        }
+    &-userData {
+
+    }
+
+    &-userRepos {
+
+    }
+
+    &-userStatics {
+
+    }
+
+
+
+    &-repos {
+        grid-column: 1 / 13;
+        grid-row: 2 / 3;
+    }
+
+    &-repo {
+        margin-block: 1.6rem;
+    }
+
+    &-repoLink {
+        display: flex;
+        justify-content: flex-start;
+        gap: 2.4rem;
+        padding: 2.4rem;
     }
 }
