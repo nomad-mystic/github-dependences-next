@@ -24,7 +24,7 @@ export default class GithubService {
                 auth: process.env.GITHUB_API_KEY,
             });
 
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.log('GithubService.getOctokitPackage');
             console.error(err);
         }
@@ -38,11 +38,11 @@ export default class GithubService {
      * @param {string} apiRoute
      * @return {Promise<OctokitResponse<any> | undefined>}
      */
-    public static buildApiResponse = async (apiRoute: string): Promise<OctokitResponse<any> | undefined> => {
+    public static buildApiResponse = async (apiRoute: string): Promise<OctokitResponse<unknown> | undefined> => {
         try {
             const octokit = await this.getOctokitPackage();
 
-            const response: OctokitResponse<any> = await octokit.request(apiRoute, {
+            const response = await octokit.request(apiRoute, {
                 username: process.env.GITHUB_USERNAME as string,
                 headers: {
                     'X-GitHub-Api-Version': '2022-11-28'
@@ -51,7 +51,7 @@ export default class GithubService {
 
             return response;
 
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.log('GithubService.buildApiResponse');
             console.error(err);
         }

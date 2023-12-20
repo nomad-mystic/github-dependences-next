@@ -17,10 +17,6 @@ export default function Home(): React.JSX.Element {
 
     console.log(isAuthorized);
 
-    useEffect(() => {
-        fetch('/api/v1/repos/all').then((res) => res.json()).then((data) => console.log(data));
-    }, []);
-
     return (
         <>
             {

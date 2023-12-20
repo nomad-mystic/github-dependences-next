@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
-
+/**
+ * @description
+ * @public
+ * @author Keith Murphy | nomadmystics@gmail.com
+ *
+ * @return
+ */
 const authSlice = createSlice({
     name: 'auth',
     initialState: true,

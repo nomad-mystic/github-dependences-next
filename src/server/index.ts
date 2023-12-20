@@ -10,6 +10,7 @@ import { NextServer, RequestHandler } from 'next/dist/server/next';
 import KeyRoute from './api/v1/routes/key-route';
 import ReposRoute from './api/v1/routes/repos-route';
 import UserRoute from './api/v1/routes/user-route';
+import GithubUserRoute from './api/v1/routes/github-user-route';
 
 // Services
 import MongoDBService from './api/v1/services/mongo-db-service';
@@ -52,6 +53,7 @@ nextServer.prepare().then((): void => {
     // Append routes
     expressServer.use('/api/v1/key', new KeyRoute().router);
     expressServer.use('/api/v1/repos', new ReposRoute().router);
+    expressServer.use('/api/v1/github-user', new GithubUserRoute().router);
     expressServer.use('/api/v1/user', new UserRoute().router);
 
     expressServer.get('*', (req: Request, res: Response) => {
