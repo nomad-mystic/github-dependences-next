@@ -44,6 +44,13 @@ Helpful commands
 * ```$ docker exec -it development-mongo-dev-1 bash```
 * ```$ docker inspect {CONTAINER_NAME}```
 
+### API Endpoints:
+* `/api/v1/key`
+* `/api/v1/repos`
+* `/api/v1/github-user`
+* `/api/v1/user`
+
+
 ### Helpful Links:
 * https://docs.docker.com/
 * https://docs.docker.com/compose/reference/

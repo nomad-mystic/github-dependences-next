@@ -10,9 +10,11 @@ import './dashboard.css';
 import Sidebar from '@/app/components/sidebar/sidebar';
 import { ScrollArea } from '@/app/components/ui/scroll-area';
 
-// Types
-import GitHubRepoType from '@/app/types/github-repo-type';
+// Helpers
+import { getJson } from '@/app/helpers/rest-helpers';
 
+// Types
+import { GithubRepoType, GitHubDataType } from '@/app/types/github-repo-types';
 
 /**
  * @description
@@ -22,19 +24,21 @@ import GitHubRepoType from '@/app/types/github-repo-type';
  * @return {React.JSX.Element}
  */
 const DashboardPage = (): React.JSX.Element => {
-    const [repos, setRepos] = useState([]);
+    const [repos, setRepos] = useState<Array<GitHubDataType>>([]);
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
 
         const callForRepos = async () => {
             try {
-                const reposRaw = await fetch('/api/v1/repos/all');
-                const reposJson = await reposRaw.json();
+                const response = await getJson('/api/v1/repos/all') as GithubRepoType | undefined;
 
-                console.log(reposJson);
+                if (response && typeof response !== 'undefined') {
 
-                setRepos(reposJson.data);
+                    console.log(response);
+
+                    setRepos(response.data);
+                }
             } catch (err) {
 
                 console.log(err);
@@ -56,7 +60,7 @@ const DashboardPage = (): React.JSX.Element => {
 
             <section className="DashboardPage">
                 {
-                    !isError && repos.map((repo: GitHubRepoType) => {
+                    !isError && repos.map((repo: GitHubDataType) => {
                         return (
                             <article key={ repo.id }>
                                 <h1>{ repo.name }</h1>
