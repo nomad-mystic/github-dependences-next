@@ -18,7 +18,31 @@
         grid-column: 1 / 13;
         grid-row: 1;
         height: auto;
+        display: flex;
+        justify-content: space-around;
+        gap: 1.6rem;
     }
+
+    &-userData,
+    &-userRepos,
+    &-userStatics {
+        width: 100%;
+        text-align: center;
+    }
+
+    &-userData {
+
+    }
+
+    &-userRepos {
+
+    }
+
+    &-userStatics {
+
+    }
+
+
 
     &-repos {
         grid-column: 1 / 13;

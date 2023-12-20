@@ -9,7 +9,7 @@ import './dashboard.css';
 // Components
 import Sidebar from '@/app/components/sidebar/sidebar';
 import { ScrollArea } from '@/app/components/ui/scroll-area';
-import { Card } from '@/app/components/ui/card';
+import { Card, CardTitle } from '@/app/components/ui/card';
 
 // Helpers
 import { getJson } from '@/app/helpers/rest-helpers';
@@ -92,17 +92,19 @@ const DashboardPage = (): React.JSX.Element => {
             </div>
 
 
-            <section className="DashboardPage-content ">
+            <section className="DashboardPage-content">
                 <section className="DashboardPage-user">
-                    <section>
-                        <h3>User data</h3>
-                    </section>
-                    <section>
-                        <h3>Repos</h3>
-                    </section>
-                    <section>
-                        <h3>Statics</h3>
-                    </section>
+                    <Card className="DashboardPage-userData">
+                        <CardTitle>User data</CardTitle>
+                    </Card>
+
+                    <Card className="DashboardPage-userRepos">
+                        <CardTitle>Repos</CardTitle>
+                    </Card>
+
+                    <Card className="DashboardPage-userStatics">
+                        <CardTitle>Statics</CardTitle>
+                    </Card>
                 </section>
 
                 <section className="DashboardPage-repos">
@@ -110,8 +112,8 @@ const DashboardPage = (): React.JSX.Element => {
                         !isError && repos.map((repo: GitHubReposDataType) => {
                             return (
                                 <Card key={ repo.id } className="DashboardPage-repo bg-cardBackground">
-                                    <Link href="/repo/?current_repo={repo.name}" className="DashboardPage-repoLink">
-                                        <h1 className="lg:text-2xl">Name: { repo.name }</h1>
+                                    <Link href={ `/repo/?current_repo=${ repo.name }` } className="DashboardPage-repoLink">
+                                        <CardTitle className="lg:text-2xl">Name: { repo.name }</CardTitle>
                                         <h2 className="lg:text-2xl">Last Updated: { repo.updated_at }</h2>
                                     </Link>
                                 </Card>
