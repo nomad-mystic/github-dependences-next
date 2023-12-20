@@ -13,9 +13,7 @@ import { Inter } from 'next/font/google';
 
 // Components
 import { ThemeProvider } from '@/app/components/theme-provider';
-import { Provider } from 'react-redux';
-
-import store from './store/index';
+import { Providers } from '@/app/lib/providers';
 
 const inter: NextFont = Inter({
     subsets: ['latin'],
@@ -41,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <html lang="en" suppressHydrationWarning>
         <body className={ inter.className }>
 
-        <Provider store={ store }>
+        <Providers>
             <ThemeProvider
                 attribute="class"
                 defaultTheme="system"
@@ -52,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                 { children }
 
             </ThemeProvider>
-        </Provider>
+        </Providers>
         </body>
         </html>
     )

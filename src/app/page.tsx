@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
 // Types
-import { AuthState } from '@/app/store/slices/auth/auth-types';
+import { AuthState } from '@/app/lib/redux/slices/auth/auth-types';
 
 // Components
 import DashboardPage from '@/app/dashboard/page';
