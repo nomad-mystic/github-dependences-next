@@ -1,9 +1,9 @@
 /**
- * @description
+ * @description Abstract our GET fetches
  * @public
  * @author Keith Murphy | nomadmystics@gmail.com
  *
- * @return {Promise<Record<T, K>}
+ * @return {Promise<Response | undefined>}
  */
 export const getJson = async (route: string, errorMessage: string = 'There was an issue fetching from the this endpoint: '): Promise<Response | undefined> => {
     try {

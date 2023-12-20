@@ -10,6 +10,7 @@ import './dashboard.css';
 import Sidebar from '@/app/components/sidebar/sidebar';
 import { ScrollArea } from '@/app/components/ui/scroll-area';
 import { Card, CardTitle } from '@/app/components/ui/card';
+import Link from 'next/link';
 
 // Helpers
 import { getJson } from '@/app/helpers/rest-helpers';
@@ -17,7 +18,6 @@ import { getJson } from '@/app/helpers/rest-helpers';
 // Types
 import { GithubRepoType, GitHubReposDataType } from '@/app/types/github-repo-types';
 import { GithubUserType, GitHubUserDataType } from '@/app/types/github-user-types';
-import Link from 'next/link';
 
 /**
  * @description
